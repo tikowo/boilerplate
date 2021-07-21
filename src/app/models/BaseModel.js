@@ -1,5 +1,4 @@
 const { Model, AjvValidator } = require('objection');
-// const addFormats = require("ajv-formats");
 
 class BaseModel extends Model {
     static get modelPaths() {
@@ -33,6 +32,9 @@ class BaseModel extends Model {
                 validateSchema: false,
                 ownProperties: true,
                 v5: true,
+                /* Additional options */
+                useDefaults: true,
+                removeAdditional: 'all'
             },
         });
     }
