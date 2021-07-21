@@ -1,11 +1,41 @@
-const { Model } = require('objection');
+const { Model, AjvValidator } = require('objection');
+// const addFormats = require("ajv-formats");
 
 class BaseModel extends Model {
     static get modelPaths() {
         return [__dirname];
     }
+
+    static get tableName() {
+        const name = this.name.toLowerCase();
+        return name.slice(-1) !== 'y' ? name + 's' : name.slice(0, -1) + 'ies';
+    }
+
+    $formatJson(json) {
+        json = super.$formatJson(json);
+
+        if(this.hidden) {
+            this.hidden.forEach(item => {
+                delete json[item];
+            });
+        }
+
+        return json;
+    }
+
+    static createValidator() {
+        return new AjvValidator({
+            onCreateAjv: (ajv) => {
+                /* Do Nothing by default */
+            },
+            options: {
+                allErrors: true,
+                validateSchema: false,
+                ownProperties: true,
+                v5: true,
+            },
+        });
+    }
 }
 
-module.exports = {
-    BaseModel
-};
+module.exports = BaseModel;

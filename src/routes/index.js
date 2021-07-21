@@ -1,9 +1,13 @@
-const TestController = require('../app/controllers/TestController');
-
 const express = require('express');
+
+const auth           = require('./auth');
+const TestController = require('../app/controllers/TestController');
+const AuthMiddleware = require('../app/middleware/AuthMiddleware');
 
 const router = express.Router();
 
-router.get('/test', TestController.index);
+router.use(auth);
+
+router.get('/test', AuthMiddleware, TestController.index);
 
 module.exports = router;
