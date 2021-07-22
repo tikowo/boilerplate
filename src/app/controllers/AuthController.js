@@ -22,9 +22,12 @@ exports.login = async (req, res, next) => {
             return res.status(400).json(e.data)
         }
 
-        return res.status(500).json("Internal Server Error")
+        return res.status(500).json({
+            error: 'Internal Server Error'
+        })
     }
 }
+
 exports.register = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
@@ -47,12 +50,13 @@ exports.register = async (req, res, next) => {
 
         return res.status(201).json(user);
     } catch(e) {
-        console.log(e);
         if (e.statusCode === 400) {
             return res.status(400).json(e.data)
         }
 
-        return res.status(500).json("Internal Server Error")
+        return res.status(500).json({
+            error: 'Internal Server Error'
+        })
     }
 }
 
