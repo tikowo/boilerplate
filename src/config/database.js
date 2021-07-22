@@ -20,9 +20,9 @@ if (log === 'true') {
             query = query.replace('?', `'${queryData.bindings[i]}'`);
         }
     }).on('query-response', function() {
-        fs.writeFile('./src/logs/query.log', `${query} : ${Date.now() - timer}ms\r\n`, { flag: 'a+' }, err => {
-            if (err) {
-                console.error(err);
+        fs.writeFile('./src/logs/query.log', `${query} : ${Date.now() - timer}ms\r\n`, { flag: 'a+' }, e => {
+            if (e) {
+                console.error(e);
             }
         })
     });

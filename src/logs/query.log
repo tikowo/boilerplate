@@ -153,3 +153,10 @@ select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Brau
 select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 2ms
 select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 0ms
 select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 1ms
+select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 5ms
+select `users`.* from `users` where `email` = 'Dayna_Dietrich9@yahoo.com' : 4ms
+select `users`.* from `users` where `email` = 'Dayna_Dietrich9@yahoo.com' : 1ms
+insert into `users` (`email`, `name`, `password`) values ('Dayna_Dietrich9@yahoo.com', '123123', '$2b$10$g0oFQ5YyVPJoLn1uc4F7QeNoE.QWf4kolX7B1GNRd4whl7MFHpYoO') : 6ms
+select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 1ms
+select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 4ms
+select `users`.* from `users` where `users`.`id` = '1' and `name` = 'Magnus_Braun44' : 8ms

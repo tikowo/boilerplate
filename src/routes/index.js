@@ -8,6 +8,6 @@ const router = express.Router();
 
 router.use(auth);
 
-router.get('/test', TestController.index);
+router.get('/test', AuthMiddleware, TestController.index);
 
 module.exports = router;
