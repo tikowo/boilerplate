@@ -5,8 +5,10 @@ class BaseModel extends Model {
         return [__dirname];
     }
 
+    // TODO think about getting name on initialization
     static get tableName() {
-        const name = this.name.toLowerCase();
+        let name = this.name.split(/(?=[A-Z])/).join('_').toLowerCase();
+
         return name.slice(-1) !== 'y' ? name + 's' : name.slice(0, -1) + 'ies';
     }
 

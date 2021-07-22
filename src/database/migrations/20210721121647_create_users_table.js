@@ -1,6 +1,8 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('users', function(table) {
+        table.engine('InnoDB');
+
         table.bigIncrements();
         table.string('name').notNullable();
         table.string('email').notNullable().unique('email');
