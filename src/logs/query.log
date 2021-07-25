@@ -4,3 +4,11 @@ select `users`.* from `users` where `id` = '2' : 3ms
 select `users`.* from `users` where `id` = '2' : 3ms
 select `users`.* from `users` where `id` = '2' : 0ms
 select `users`.* from `users` where `id` = '2' : 3ms
+select `users`.* from `users` where `email` = 'tiko' : 10ms
+select `users`.* from `users` where `email` = 'tiko' : 6ms
+select `users`.* from `users` where `email` = 'tiko' : 7ms
+select `users`.* from `users` where `email` = 'tiko' : 2ms
+select `users`.* from `users` where `email` = 'tiko@gmail.com' : 1ms
+insert into `users` (`email`, `name`, `password`) values ('tiko@gmail.com', 'asdf', '$2b$10$hSkkaFxFSLaO41JlKBhJ2.Sb9cnrfxYnQOgfQsXGWpFUPPW1pQnVC') : 19ms
+select `users`.* from `users` where `id` = '24' : 1ms
+select `users`.* from `users` where `id` = '24' : 2ms
