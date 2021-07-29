@@ -8,7 +8,10 @@ const verifyToken = async (req, res, next) => {
 
     try {
         const { id } = jwt.verify(token, jwtSecret);
-        req.auth = await User.query().where('id', id).throwIfNotFound();
+
+        req.auth = () => {
+            return User.query().findById(id);
+        };
     } catch(e) {
         return res.status(401).json({
             error: 'Unauthenticated'

@@ -6,8 +6,13 @@ const app = express();
 
 app.use(cors({
     origin: '*',
+    maxAge: 3600
 }))
+
 app.use(express.json());
+app.use(express.urlencoded({
+    extended: false
+}));
 
 app.use(routes);
 

@@ -65,7 +65,7 @@ function signJwt(user) {
         user.toJSON(),
         jwtSecret,
         {
-            expiresIn: '2h'
+            expiresIn: '1d'
         }
     );
 }
